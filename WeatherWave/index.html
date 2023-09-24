@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico"><!--conversor para .ico: https://convertio.co/pt/-->
+  <title>WeatherWave</title>
+
+  <script src="https://accounts.google.com/gsi/client" async></script>
+  <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
+  <script>
+       function handleCredentialResponse(response) {
+          const data = jwt_decode (response.credential)
+          console.log(data)
+
+          fullName.textContent = data.name
+          sub.textContent = data.sub
+          given_name.textContent = data.given_name
+          family_name.textContent = data.family_name 
+          email.textContent = data.email
+          verifiedEmail.textContent = data.email_verified
+          picture.setAttribute("src", data.picture)
+       }
+       window.onload = function () {
+         google.accounts.id.initialize({
+           client_id: "189717827051-momovhba9n6hmlgk7thq4qf1hri8dgn1.apps.googleusercontent.com",
+           callback: handleCredentialResponse
+         });
+
+         google.accounts.id.renderButton(
+           document.getElementById("buttonDiv"),
+           { theme: "filled_black", size: "medium",
+           type: "standard",
+           shape : "pill",
+           text: "signin_with",
+           logo_alignment:"left",
+           width: "200" }  // customization attributes
+         );
+         google.accounts.id.prompt(); // also display the One Tap dialog
+
+         // Add an event listener to the Google Sign-In button
+         document.getElementById('buttonDiv').addEventListener('click', onSignIn);
+       }
+
+       function onSignIn(googleUser) {
+         // Display a message or animation indicating that the login was successful
+         document.getElementById('login-status').innerHTML = 'Login successful!';
+       }
+  </script>
+
+  <link rel="stylesheet" href="css/styles.css">
+  
+</head>
+<body>
+	<section>
+        <div class="circle"></div>
+		<div class="weather-card">
+        <h1 class="city-name">Cataguases</h1>
+        <div class="weather-info">
+            <div class="temperature">
+                <p class="current-temp">27°C</p>
+                <img src="assets/sun.png" alt="" class="weather-icon">
+            </div>
+            <p class="temp-range">Min: 18°C / Max: 36°C</p>
+        </div>
+    </div>
+			<header>
+					<a href="#"><img src="assets/Wwlogo.png" alt="" class="logo"></a>
+					
+					<div class="search-container">
+					<input type="text" id="searchInput" placeholder="Search">
+						<ul id="results" class="results-list"></ul>
+					</div>
+					<nav class="navegation"><!--logo-->
+						<ul>
+              <li><a href = "#"> <img id = "picture"/> </a></li>
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Menu</a></li>
+							<li id="buttonDiv" class="google-signin-button"></li>
+
+             
+
+            
+						</ul>
+					</nav>
+			</header>
+			
+	<script src="https://assets.hgbrasil.com/weather/js/hg-weather-1.0.js" type="text/javascript"></script>
+    <script src="script.js"></script>
+			
+		<ul class="icons">
+            <li><a href="#"><img src="assets/facebook.png" alt=""></a></li>
+            <li><a href="#"><img src="assets/twitter.png" alt=""></a></li>
+            <li><a href="#"><img src="assets/instagram.png" alt=""></a></li>
+        </ul>
+
+        <div class='boxImg'>
+            <img src='assets/globe2.gif' alt='' class='img1'>
+        </div>
+
+    </section>
+
+</body>
+
+</html>
+

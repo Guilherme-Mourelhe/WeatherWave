@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google Login</title>
+
+    <script src="https://accounts.google.com/gsi/client" async></script>
+    <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
+    <script>
+         function handleCredentialResponse(response) {
+            const data = jwt_decode (response.credential)
+            console.log(data)
+
+            fullName.textContent = data.name
+            sub.textContent = data.sub
+            given_name.textContent = data.given_name
+            family_name.textContent = data.family_name 
+            email.textContent = data.email
+            verifiedEmail.textContent = data.email_verified
+            picture.setAttribute("src", data.picture)
+         }
+         window.onload = function () {
+           google.accounts.id.initialize({
+             client_id: "189717827051-momovhba9n6hmlgk7thq4qf1hri8dgn1.apps.googleusercontent.com",
+             callback: handleCredentialResponse
+           });
+
+           google.accounts.id.renderButton(
+             document.getElementById("buttonDiv"),
+             { theme: "filled_black", size: "large",
+             type: "standard",
+             shape : "rectangular",
+             text: "signin_with",
+             logo_alignment:"left",
+             width: "258" }  // customization attributes
+           );
+           google.accounts.id.prompt(); // also display the One Tap dialog
+         }
+    </script>
+  </head>
+  <body>
+    <div id="buttonDiv"></div>
+    <p id = "fullName"></p>
+    <p id = "sub"></p>
+    <p id = "given_name"></p>
+    <p id = "family_name"></p>
+    <p id = "email"></p>
+    <p id = "verifiedEmail"></p>
+    <img id = "picture"/>
+  </body>
+</html>
