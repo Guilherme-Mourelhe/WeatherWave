@@ -6,21 +6,51 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico"><!--conversor para .ico: https://convertio.co/pt/-->
   <title>WeatherWave</title>
+  
+
+  <style>
+    #userDetails {
+      display: flex;
+      align-items: center;
+    }
+    #fullName {
+      margin-right: 10px;
+      color: #333;
+      font-size: 18px; /* Aumenta o tamanho da fonte */
+      font-weight: bold; /* Deixa o texto em negrito */
+    }
+    #picture {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-right: 10px; /* Adiciona uma margem à direita da foto */
+    }
+    
+  </style>
 
   <script src="https://accounts.google.com/gsi/client" async></script>
   <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
+  
   <script>
        function handleCredentialResponse(response) {
           const data = jwt_decode (response.credential)
           console.log(data)
 
-          fullName.textContent = data.name
-          sub.textContent = data.sub
-          given_name.textContent = data.given_name
-          family_name.textContent = data.family_name 
-          email.textContent = data.email
-          verifiedEmail.textContent = data.email_verified
-          picture.setAttribute("src", data.picture)
+          // Divide o nome completo em palavras e pega apenas as duas primeiras
+          const nameParts = data.name.split(' ');
+          const firstName = nameParts[0];
+          const secondName = nameParts.length > 1 ? nameParts[1] : '';
+          const shortName = firstName + ' ' + secondName;
+
+          // Atualiza o conteúdo dos elementos HTML com os dados do usuário
+          fullName.textContent = shortName;
+          picture.setAttribute("src", data.picture);
+
+          // Oculta o botão de login do Google após a realização do login
+          document.getElementById("buttonDiv").style.display = "none";
+
+          // Mostra o nome e a foto do usuário
+          document.getElementById("userDetails").style.display = "block";
        }
        window.onload = function () {
          google.accounts.id.initialize({
@@ -32,30 +62,28 @@
            document.getElementById("buttonDiv"),
            { theme: "filled_black", size: "medium",
            type: "standard",
-           shape : "pill",
+           shape : "Rectangular",
            text: "signin_with",
            logo_alignment:"left",
-           width: "200" }  // customization attributes
+           width: "200" }  // personalização do botão
          );
-         google.accounts.id.prompt(); // also display the One Tap dialog
+         google.accounts.id.prompt(); 
 
-         // Add an event listener to the Google Sign-In button
-         document.getElementById('buttonDiv').addEventListener('click', onSignIn);
        }
 
-       function onSignIn(googleUser) {
-         // Display a message or animation indicating that the login was successful
-         document.getElementById('login-status').innerHTML = 'Login successful!';
-       }
   </script>
 
   <link rel="stylesheet" href="css/styles.css">
   
 </head>
 <body>
+
+ 
+
 	<section>
         <div class="circle"></div>
 		<div class="weather-card">
+      <a href="weathercard.html">      
         <h1 class="city-name">Cataguases</h1>
         <div class="weather-info">
             <div class="temperature">
@@ -64,6 +92,7 @@
             </div>
             <p class="temp-range">Min: 18°C / Max: 36°C</p>
         </div>
+      </a>
     </div>
 			<header>
 					<a href="#"><img src="assets/Wwlogo.png" alt="" class="logo"></a>
@@ -74,14 +103,19 @@
 					</div>
 					<nav class="navegation"><!--logo-->
 						<ul>
-              <li><a href = "#"> <img id = "picture"/> </a></li>
+              <li><a href = "#"> 
+                <!-- Adicione um novo div para o nome e a foto do usuário -->
+                <div id="userDetails" style="display: none;">
+                  <img id="picture" /> <!-- Mova a foto para antes do nome -->
+                  <p id="fullName"></p> 
+                </div> 
+              </a></li>
 							<li><a href="#">Home</a></li>
 							<li><a href="#">Menu</a></li>
-							<li id="buttonDiv" class="google-signin-button"></li>
+              
+              <!-- Botão de login do Google -->
+              <div id="buttonDiv" class="google-signin-button"></div>
 
-             
-
-            
 						</ul>
 					</nav>
 			</header>
@@ -104,4 +138,3 @@
 </body>
 
 </html>
-
