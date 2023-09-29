@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico">
+    <title>WeatherWave</title>
+
+    <style>
+          #userDetails {
+              display: flex;
+              align-items: center;
+                   }
+          #fullName {
+            margin-right: 10px;
+            color: #333;
+            font-size: 22px; /* Aumente o tamanho da fonte */
+            font-weight: bold;
+            text-transform: uppercase; /* Transforme o texto em maiúsculas */
+          }
+  
+          #picture {
+            width: 50px; /* Aumente o tamanho da imagem */
+            height: 50px;
+            border-radius: 50%; /* Faça a imagem redonda */
+            margin-right: 10px;
+          }
+          
+          /* Adicionado estilo para mover o cabeçalho para cima */
+          header {
+            position: relative; /* Adicionado */
+            margin-top: 10px; /* Ajuste este valor conforme necessário */
+          }
+          .navegation {
+            position: absolute; /* Adicionado */
+            top: 0; /* Adicionado */
+            right: 0; /* Adicionado */
+        }
+    </style>
+
+    <script src="https://accounts.google.com/gsi/client" async></script>
+    <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <section>
+        <div class="circle"></div>
+        <div class="weather-card">
+            <a href="weathercard.html">
+                <h1 class="city-name">Cataguases</h1>
+                <div class="weather-info">
+                    <div class="temperature">
+                        <p class="current-temp">27°C</p>
+                        <img src="assets/sun.png" alt="" class="weather-icon">
+                    </div>
+                    <p class="temp-range">Min: 18°C / Max: 36°C</p>
+                </div>
+            </a>
+        </div>
+        <header>
+            <a href="#"><img src="assets/Wwlogo.png" alt="" class="logo"></a>
+
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search">
+                <ul id="results" class="results-list"></ul>
+            </div>
+
+            <!-- Botão de login movido para dentro do cabeçalho -->
+            <nav class="navegation">
+                <ul>
+                    <li>
+                      <iframe src="login.html" style="width: 400px; height: 100vh; border: none;"></iframe>
+
+
+                    </li>
+                </ul>
+            </nav>
+
+        </header>
+
+       
+        <script src="https://assets.hgbrasil.com/weather/js/hg-weather-1.0.js" type="text/javascript"></script>
+        <script src="script.js"></script>
+        <ul class="icons">
+            <li><a href="#"><img src="assets/facebook.png" alt=""></a></li>
+            <li><a href="#"><img src="assets/twitter.png" alt=""></a></li>
+            <li><a href="#"><img src="assets/instagram.png" alt=""></a></li>
+        </ul>
+        <div class='boxImg'>
+            <img src='assets/globe2.gif' alt='' class='img1'>
+        </div>
+
+    </section>
+
+   
+    <footer class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-30">
+                    Todos direitos reservados - WeatherWave © (2023) | Política de Privacidade
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
