@@ -1,0 +1,143 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico"><!--conversor para .ico: https://convertio.co/pt/-->
+    <title>WeatherWave</title>    
+
+    <style>
+      #userDetails {
+        display: flex;
+        align-items: center;
+      }
+      #fullName {
+        margin-right: 10px;
+        color: #333;
+        font-size: 18px;
+        font-weight: bold;
+      }
+      #picture {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+      
+    </style>
+
+    <script src="https://accounts.google.com/gsi/client" async></script>
+    <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
+    
+    <script>
+        function handleCredentialResponse(response) {
+            const data = jwt_decode (response.credential)
+            console.log(data)
+
+            // Divide o nome completo em palavras e pega apenas as duas primeiras
+            const nameParts = data.name.split(' ');
+            const firstName = nameParts[0];
+            const secondName = nameParts.length > 1 ? nameParts[1] : '';
+            const shortName = firstName + ' ' + secondName;
+
+            // Atualiza o conteúdo dos elementos HTML com os dados do usuário
+            fullName.textContent = shortName;
+            picture.setAttribute("src", data.picture);
+
+            // Oculta o botão de login do Google após a realização do login
+            document.getElementById("buttonDiv").style.display = "none";
+
+            // Mostra o nome e a foto do usuário
+            document.getElementById("userDetails").style.display = "block";
+        }
+        window.onload = function () {
+          google.accounts.id.initialize({
+            client_id: "a",
+            callback: handleCredentialResponse
+          });
+
+          google.accounts.id.renderButton(
+            document.getElementById("buttonDiv"),
+            { theme: "filled_black", size: "medium",
+            type: "standard",
+            shape : "Rectangular",
+            text: "signin_with",
+            logo_alignment:"left",
+            width: "200" }  // personalização do botão
+          );
+          google.accounts.id.prompt(); 
+
+        }
+
+    </script>
+
+    <link rel="stylesheet" href="css/styles.css">
+    
+  </head>
+  <body>
+    <section>
+          <div class="circle"></div>
+      <div class="weather-card">
+        <a href="weathercard.html">      
+          <h1 class="city-name">Leopoldina - MG</h1>
+          <div class="weather-info">
+              <div class="temperature">
+                  <p class="current-temp">17°C</p>
+                  <img src="assets/cloudy.png" alt="" class="weather-icon">
+              </div>
+              <p class="temp-range">Min: 16°C / Max: 22°C</p>
+          </div>
+        </a>
+      </div>
+        <header>
+            <a href="index.html"><img src="assets/Wwlogo.png" alt="" class="logo"></a>
+            
+            <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search">
+              <ul id="results" class="results-list"></ul>
+            </div>
+            <nav class="navegation"><!--logo-->
+              <ul>
+                <li><a href = "#"> 
+                  <!-- Adiciona um novo div para o nome e a foto do usuário -->
+                  <div id="userDetails" style="display: none;">
+                    <img id="picture" /> <!-- Move a foto para antes do nome -->
+                    <p id="fullName"></p> 
+                  </div> 
+                </a></li>              
+                <!-- Botão de login do Google -->
+                <div id="buttonDiv" class="google-signin-button"></div>
+
+              </ul>
+            </nav>
+        </header>
+        
+    <script src="https://assets.hgbrasil.com/weather/js/hg-weather-1.0.js" type="text/javascript"></script>
+      <script src="script.js"></script>
+        
+      <ul class="icons">
+              <li><a href="#"><img src="assets/facebook.png" alt=""></a></li>
+              <li><a href="#"><img src="assets/twitter.png" alt=""></a></li>
+              <li><a href="#"><img src="assets/instagram.png" alt=""></a></li>
+          </ul>
+
+          <div class='boxImg'>
+              <img src='assets/globe2.gif' alt='' class='img1'>
+          </div>
+
+      </section>
+      
+      <footer class="container-fluid" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    Todos direitos reservados - WeatherWave © (2023) | Política de Privacidade
+                </div>
+            </div>
+        </div>
+      </footer>
+
+  </body>
+
+  </html>

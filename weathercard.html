@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico"><!--conversor para .ico: https://convertio.co/pt/-->
+  <title>WeatherWave</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+
+  <style>
+    #userDetails {
+      display: flex;
+      align-items: center;
+    }
+    #fullName {
+      margin-right: 10px;
+      color: #333;
+      font-size: 18px; 
+      font-weight: bold;
+    }
+    #picture {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    
+  </style>
+
+  <script src="https://accounts.google.com/gsi/client" async></script>
+  <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
+  
+  <script>
+       function handleCredentialResponse(response) {
+          const data = jwt_decode (response.credential)
+          console.log(data)
+
+          // Divide o nome completo em palavras e pega apenas as duas primeiras
+          const nameParts = data.name.split(' ');
+          const firstName = nameParts[0];
+          const secondName = nameParts.length > 1 ? nameParts[1] : '';
+          const shortName = firstName + ' ' + secondName;
+
+          // Atualiza o conteúdo dos elementos HTML com os dados do usuário
+          fullName.textContent = shortName;
+          picture.setAttribute("src", data.picture);
+
+          // Oculta o botão de login do Google após a realização do login
+          document.getElementById("buttonDiv").style.display = "none";
+
+          // Mostra o nome e a foto do usuário
+          document.getElementById("userDetails").style.display = "block";
+       }
+       window.onload = function () {
+         google.accounts.id.initialize({
+           client_id: "189717827051-momovhba9n6hmlgk7thq4qf1hri8dgn1.apps.googleusercontent.com",
+           callback: handleCredentialResponse
+         });
+
+         google.accounts.id.renderButton(
+           document.getElementById("buttonDiv"),
+           { theme: "filled_black", size: "medium",
+           type: "standard",
+           shape : "Rectangular",
+           text: "signin_with",
+           logo_alignment:"left",
+           width: "200" }  // personalização do botão
+         );
+         google.accounts.id.prompt(); 
+
+       }
+
+  </script>
+
+  <link rel="stylesheet" href="css/styles.css">
+  
+</head>
+<body>
+	<section>
+        <div class="circle"></div>
+			<header>
+        <a href="index.html"><img src="assets/Wwlogo.png" alt="" class="logo"></a>
+					
+					<div class="search-container">
+					<input type="text" id="searchInput" placeholder="Search">
+						<ul id="results" class="results-list"></ul>
+					</div>
+					<nav class="navegation"><!--logo-->
+						
+					</nav>
+			</header>
+
+    <div style="display: flex; justify-content: center; align-items: center;">
+      
+      <div style="margin-left: 20px; text-align: left;">
+          <h1>Leopoldina - MG</h1>
+          <p>Temperatura Atual: 17°C</p>
+          <p>Máxima: 22°C</p>
+          <p>Mínima: 16°C</p>
+      </div>
+  </div>
+  <div style="width: 700px; height: 400px; background-color: white; border-radius: 20px; margin: 10px auto; z-index: 1">
+    <canvas id="previsaoTempo" style="padding: 20px;"></canvas>
+</div>
+    
+    <script>
+        // Dados de exemplo para o gráfico
+        var horas = ["00:00", "02:00", "04:00", "06:00", "08:00", "10:00", "12:00", "14:00", "16:00", "18:00", "20:00", "22:00" ];
+        var temperatura = [18, 17, 16, 17, 16, 17, 18, 20, 21, 22, 21, 20];
+    
+        // Obtém o elemento canvas
+        var ctx = document.getElementById('previsaoTempo').getContext('2d');
+    
+        // Cria o gráfico de linha
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: horas,
+                datasets: [{
+                    label: 'Temperatura (°C)',
+                    data: temperatura,
+                    borderColor: 'blue',
+                    backgroundColor: 'transparent',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                maintainAspectRatio: false, // Para manter o tamanho do retângulo
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false // Oculta a legenda
+                    }
+                }
+            }
+        });
+    </script>
+    </section>
+
+    
+
+</body>
+
+</html>
+
