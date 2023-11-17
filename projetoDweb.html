@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width-device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico">
+  <title>WeatherWave</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/swiper-bundle.min.css">
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/fontawesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/owl.carousel.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header>
+	<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a href="projetoDweb.html"><img src="assets/Wwlogo.png" alt="" class="navbar-brand" style="width: 3.8vw; height: auto;"/></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="projetoDweb.html">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Notícias
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Mais lidas</a></li>
+            <li><a class="dropdown-item" href="#">Mais recentes</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="weathercard.html">Sua região</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="privacy-policy.html">Política de Privacidade</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Digite aqui..." aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+</header>
+
+<style>
+  .carousel-img {
+    margin: 30px 10px 30px 0px; /* Ajuste as margens conforme necessario */
+    border-radius: 40px;
+    width:10%;
+  }
+</style>
+
+<div id="carouselExampleCaptions" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="assets/London_Big_Ben_Westminster_Abbey_Bus-Cities_Photo_HD_Wallpaper_1366x768.jpg" class="d-block w-100 carousel-img" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Correndo contra o carbono: maratona de Londres cobra R$ 156 de participantes estrangeiros para compensar emissões</h5>
+        <p></p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="assets/b3.jpg" class="d-block w-100 carousel-img" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Atraso no plantio de soja vai impactar produtividade da colheita de sacas de milho em Mato Grosso</h5>
+        <p></p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="assets/b1.jpg" class="d-block w-100 carousel-img" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Praia, mar e contato com a Natureza: descanso e saúde renovada!</h5>
+        <p></p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<div class="card_wrapper">
+  <div class="container">
+      <div class="row">
+          <div class="col-12 text-center">
+              <h2 class="head_text">Clima pelo Brasil</h2>
+              <p class="head_para">Confira como está os clima pelas diversas regiões espalhadas pelo Brasil!<br> A priori, pode ser que a cidade que você busca ainda não esteja em nosso banco de dados.</p>
+          </div>
+          <div class="col-12">
+              <div class="owl-carousel slider_carousel">
+                  <div class="card_box">
+                      <img class="img-fluid w-100" src="assets/rjpng.png" alt="">
+                      <div class="card_text">
+                          <h4>Rio de Janeiro</h4>
+                          <p>Estado na região sudeste</p>
+                      </div>
+                  </div>
+                  <div class="card_box">
+                      <img class="img-fluid w-100" src="assets/Bandeira_da_Bahia.svg.png" alt="">
+                      <div class="card_text">
+                          <h4>Bahia</h4>
+                          <p>Estado na região nordeste</p>
+                      </div>
+                  </div>
+                  <div class="card_box">
+                      <img class="img-fluid w-100" src="assets/Bandeira_de_Mato_Grosso.svg.png" alt="">
+                      <div class="card_text">
+                          <h4>Mato Grosso</h4>
+                          <p>Estado na região centro-oeste</p>
+                      </div>
+                  </div>
+                  <div class="card_box">
+                      <img class="img-fluid w-100" src="assets/Bandeira_de_Santa_Catarina.svg.png" alt="">
+                      <div class="card_text">
+                          <h4>Santa Catarina</h4>
+                          <p>Estado na região sul</p>
+                      </div>
+                  </div>
+                  <div class="card_box">
+                      <img class="img-fluid w-100" src="assets/Bandeira_do_Amapá.svg.png" alt="">
+                      <div class="card_text">
+                          <h4>Amapá</h4>
+                          <p>Estado na região norte</p>
+                      </div>
+                  </div>
+                  <div class="card_box">
+                      <img class="img-fluid w-100" src="assets/Bandeira_de_Minas_Gerais.svg.png" alt="">
+                      <div class="card_text">
+                          <h4>Minas Gerais</h4>
+                          <p>Estado na região sudeste</p>
+                      </div>
+                  </div>
+                  <div class="card_box">
+                      <img class="img-fluid w-100" src="assets/Bandeira_do_Espírito_Santo.svg.png" alt="">
+                      <div class="card_text">
+                          <h4>Espírito Santo</h4>
+                          <p>Estado na região sudeste</p>
+                      </div>
+                  </div>
+                  <div class="card_box">
+                      <img class="img-fluid w-100" src="assets/Bandeira_do_estado_de_São_Paulo.svg.png" alt="">
+                      <div class="card_text">
+                          <h4>São Paulo</h4>
+                          <p>Estado na região sudeste</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!--<div id="carouselExample" class="carousel slide">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="slide-container swiper d-block w-100">
+        <div class="slide-content">
+          <div class="card-wrapper swipper-wrapper">
+            <div class="card swiper-slide">
+              <div class="image-content">
+                <span class="overlay"></span>
+                <div class="card-image">
+                  <img src="assets/cataguases.jpg" alt="" class="card-image">
+                </div>
+              </div>
+              <div class="card-content">
+                <h2 class="name">Cataguases - MG</h2>
+                <p class="description">Princesinha da zona da mata</p>
+                <button class="button" >Ver mais</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="slide-container swiper d-block w-100">
+        <div class="slide-content">
+          <div class="card-wrapper swipper-wrapper">
+            <div class="card swiper-slide">
+              <div class="image-content">
+                <span class="overlay"></span>
+                <div class="card-image">
+                  <img src="assets/cataguases.jpg" alt="" class="card-image">
+                </div>
+              </div>
+              <div class="card-content">
+                <h2 class="name">Cataguases - MG</h2>
+                <p class="description">Princesinha da zona da mata</p>
+                <button class="button" >Ver mais</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="slide-container swiper d-block w-100">
+        <div class="slide-content">
+          <div class="card-wrapper swipper-wrapper">
+            <div class="card swiper-slide">
+              <div class="image-content">
+                <span class="overlay"></span>
+                <div class="card-image">
+                  <img src="assets/cataguases.jpg" alt="" class="card-image">
+                </div>
+              </div>
+              <div class="card-content">
+                <h2 class="name">Cataguases - MG</h2>
+                <p class="description">Princesinha da zona da mata</p>
+                <button class="button" >Ver mais</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>-->
+
+<!--<div class="body1">
+  <div class="slide-container swiper">
+    <div class="slide-content">
+      <div class="card-wrapper swipper-wrapper">
+        <div class="card swiper-slide">
+          <div class="image-content">
+            <span class="overlay"></span>
+            <div class="card-image">
+              <img src="assets/cataguases.jpg" alt="" class="card-image">
+            </div>
+          </div>
+          <div class="card-content">
+            <h2 class="name">Cataguases - MG</h2>
+            <p class="description">Princesinha da zona da mata</p>
+            <button class="button" >Ver mais</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+</div>-->
+
+  <footer class="bg-dark text-white pt-5 pb-4">
+    <div class="container text-center text-md-left">
+      <div class="row text-center text-md-left">
+        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+          <h5 class="text-uppercase mb-4 font-weight-bold text-warning">WeatherWave</h5>
+          <p>Dive into Data, Ride the Wave</p>
+        </div>
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Colaboradores</h5>
+            <p>
+              <a href="#" class="text-white" style="text-decoration: none;">Leonardo Mendonça de Oliveira</a>
+            </p>
+            <p>
+              <a href="#" class="text-white" style="text-decoration: none;">Luis Guilherme Mourelhe Fernandes</a>
+            </p>
+            <p>
+              <a href="#" class="text-white" style="text-decoration: none;"></a>
+            </p>
+            <p>
+              <a href="#" class="text-white" style="text-decoration: none;"></a>
+            </p>
+          </div>
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Links</h5>
+            <p>
+              <a href="#" class="text-white" style="text-decoration: none;">Sua conta</a>
+            </p>
+            <p>
+              <a href="#" class="text-white" style="text-decoration: none;">Vire sócio</a>
+            </p>
+            <p>
+              <a href="#" class="text-white" style="text-decoration: none;">Avalie-nos</a>
+            </p>
+            <p>
+              <a href="#" class="text-white" style="text-decoration: none;">Ajuda</a>
+            </p>
+          </div>
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+            <h5 class="text-uppercase mb-4 font-weight-bold text-warning"></h5>
+            <p>
+              <i class="fas fa-home mr-3"></i> Rua José Péres, 558 - Centro, Leopoldina - MG, 36700-000
+            </p>
+            <p>
+              <i class="mr-3"></i>weatherwave0@gmail.com
+            </p>
+            <p>
+              <i class="fas fa-home mr-3"></i> +55 32 98820-5237
+            </p>
+            <p>
+              <i class="fas fa-home mr-3"></i> +55 32 98453-0865
+            </p>
+          </div>
+
+
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+  <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script>
+        
+        function slider_carouselInit() {
+            $('.owl-carousel.slider_carousel').owlCarousel({
+                dots: false,
+                loop: true,
+                margin: 30,
+                stagePadding: 2,
+                autoplay: false,
+                nav: true,
+                navText: ["<i class='far fa-arrow-alt-circle-left'></i>","<i class='far fa-arrow-alt-circle-right'></i>"],
+                autoplayTimeout: 1500,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    768: {
+                        items: 2,
+                    },
+                    992: {
+                        items: 5
+                    }
+                }
+            });
+        }
+        slider_carouselInit();
+
+    </script>
+</body>
+</html>

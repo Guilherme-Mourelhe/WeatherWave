@@ -1,0 +1,417 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+.center{
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 1280px;
+	margin:0 auto;
+	padding:0 2%;
+}
+
+.weather-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px; /* Espaçamento entre os cards */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1;
+    max-width: 250px;
+}
+
+.weather-card:first-child {
+    margin-left: 0; /* Remove a margem à esquerda do primeiro card */
+}
+
+.weather-card a {
+    text-decoration: none !important;
+    color: #000;
+}
+
+.weather-icon {
+    width: 50px;
+    height: 50px;
+}
+
+body {
+    min-height: 100%; 
+    position: relative;
+    /* Remova a propriedade overflow: hidden; */
+}
+
+/* PÁGINA DE INFO DA CIDADE */
+
+
+.weather-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh; /* Altura igual à altura da viewport para centralizar verticalmente */
+}
+
+.weather-icon-mini {
+    width: 25px;
+    height: 25px;
+}
+
+h1 {
+    font-size: 36px; 
+}
+
+.weather-info {
+    margin-top:20px;
+    text-align: left;
+}
+
+/* CARROSSEL DE NOTÍCIAS*/
+
+.container {
+	padding: 2rem;
+}
+
+.slider-wrapper {
+	position: relative;
+	max-width: 48rem;
+	margin: 0 auto;
+}
+
+.slider {
+	display: flex;
+	aspect-ratio: 16 / 9;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+	border-radius: 0.5rem;
+	-ms-overflow-style: none; /* Hide scrollbar IE and Edge */
+	scrollbar-width: none; /* Hide scrollbar Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.slider::-webkit-scrollbar {
+	display: none;
+}
+
+.slider img {
+	flex: 1 0 100%;
+	scroll-snap-align: start;
+	object-fit: cover;
+}
+
+.slider-nav {
+	display: flex;
+	column-gap: 1rem;
+	position: absolute;
+	bottom: 1.25rem;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 1;
+}
+
+.slider-nav a {
+	width: 0.5rem;
+	height: 0.5rem;
+	border-radius: 50%;
+	background-color: #fff;
+	opacity: 0.75;
+	transition: opacity ease 250ms;
+}
+
+.slider-nav a:hover {
+	opacity: 1;
+}
+
+/* CARROSSEL DE CARDS */
+
+.body1{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background-color:#efefef;
+}
+
+.slide-content{
+    margin: 0 40px;
+}
+
+.card{
+    width: 320px;
+    border-radius:25px;
+    background-color:#fff;
+}
+
+.image-content,
+.card-content{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    padding: 10px 14px;
+}
+
+.image-content{
+    position:relative;
+    row-gap: 5px;
+    padding: 25px 0;
+}
+
+.overlay{
+    position:absolute;
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    background-color:#4070f4;
+    border-radius: 25px 25px 0 25px;
+}
+
+.overlay::before,
+.overlay::after{
+    content:'';
+    position:absolute;
+    right:0;
+    bottom:-40px;
+    height:40px;
+    width:40px;
+    background-color:#4070f4;
+}
+
+.overlay::after{
+    border-radius:0 25px 0 0;
+    background-color:#fff;
+}
+
+.card-image{
+    position:relative;
+    height: 150px;
+    width: 150px;
+    border-radius:50%;
+    background:#fff;
+    padding:3px;
+}
+
+.card-image .card-img{
+    height:100%;
+    width:100%;
+    object-fit:cover;
+    border-radius:50%;
+    border: 4px solid #4070f4;
+}
+
+.name{
+    font-size: 18px;
+    font-weight: 500;
+    color:#333;
+}
+
+.description{
+    font-size: 14px;
+    color: #707070;
+    text-align: center;
+}
+
+.button{
+    border:none;
+    font-size:16px;
+    color:#fff;
+    padding:8px 16px;
+    background-color: #4070f4;
+    border-radius:6px;
+    margin: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button:hover{
+    background:#265df2;
+}
+
+/* POLÍTICA DE PRIVACIDADE */
+
+.privacy-policy {
+    max-width: 800px;
+    margin: 20px auto 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+.policy-text {
+    padding: 20px; /* Espaçamento interno de 20px */
+}
+
+/* RODAPÉ
+
+#footer {
+    font-weight: 600;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif !important;
+    text-align: center;
+    background-color: #222;
+    position: absolute;
+    width: 100%;
+    padding: 20px 0;
+    color: #FFFFFF;
+}
+
+.container-fluid {
+    text-align: center;
+}
+
+@keyframes rotateImage {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+*/
+
+/* CARROSSEL NOVO*/
+
+/*======================
+   01. Google fonts
+========================*/
+@font-face {
+    font-family: bromega-Regular;
+    src: url(../webfonts/bromega-Regular.ttf);
+}
+
+@font-face {
+    font-family: bromega-Bold;
+    src: url(../webfonts/bromega-Bold.ttf);
+}
+
+
+
+/*======================
+   02. Basic css
+========================*/
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+strong,
+i,
+ol,
+ul,
+li,
+form,
+label,
+footer,
+header,
+menu,
+nav,
+section {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	line-height: 26px;
+	background: #ffffff;
+	color: #ffffff;
+	font-family: bromega-Regular;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+button:focus, input:focus, textarea:focus {
+	outline: 0;
+}
+
+.card_wrapper {
+	background: linear-gradient(180deg, #fe9304 46.35%, #fc186e 119.01%);
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+}
+
+.head_text {
+	font-family: bromega-Bold;
+	font-size: 45px;
+}
+
+.head_para {
+	margin-top: 15px;
+}
+
+.card_box {
+	background: #ffffff;
+	border-radius: 40px;
+	margin-top: 40px;
+	transition: .3s;
+	margin-bottom: 40px;
+}
+
+.card_box:hover {
+	box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.05);
+	transform: translateY(-10px);
+}
+
+.card_text {
+	padding: 30px 20px 25px 20px;
+}
+
+.card_text h4 {
+	font-size: 18px;
+	font-family: bromega-Bold;
+	color: #fc186e;
+}
+
+.card_text p {
+	 font-size: 14px;
+	 line-height: 150%;
+	 margin-top: 10px;
+	 color: #23273A;
+}
+
+.slider_carousel .owl-nav {
+	 position: absolute;
+	 top: 50%;
+	 width: 100%;
+}
+
+.slider_carousel .owl-prev, .slider_carousel .owl-next {
+	width: 40px;
+	height: 40px;
+	background: #ffffff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+}
+
+.slider_carousel .owl-next {
+    right: -50px;
+}
+
+.slider_carousel .owl-prev {
+    left: -50px;
+}
