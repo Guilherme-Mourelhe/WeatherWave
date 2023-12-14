@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" type="image/x-icon" href="../../../assets/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>WeatherWave</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+
+<body>
+    <section>
+        <header>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const headerContainer = document.createElement('div');
+                    headerContainer.classList.add('header-container');
+                    document.body.prepend(headerContainer);
+          
+                    fetch('./headerAp.html')
+                        .then(response => response.text())
+                        .then(data => {
+                            headerContainer.innerHTML = data;
+                        });
+                });
+            </script>
+        </header>
+
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card weather-card">
+                        <img src="../../../assets/Bandeira_do_Amapá.svg.png" class="card-img-top" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Macapá</h5>
+                            <p class="card-text"></p>
+                            <a href="macapa.html" class="btn btn-primary">Ver</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card weather-card">
+                        <img src="../../../assets/Bandeira_do_Amapá.svg.png" class="card-img-top" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Oiapoque</h5>
+                            <p class="card-text"></p>
+                            <a href="oiapoque.html" class="btn btn-primary">Ver</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card weather-card">
+                        <img src="../../../assets/Bandeira_do_Amapá.svg.png" class="card-img-top" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Porto Grande</h5>
+                            <p class="card-text"></p>
+                            <a href="portogrande.html" class="btn btn-primary">Ver</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="bg-dark text-white pt-5 pb-4">
+            <div class="container text-center text-md-left">
+                <div class="row text-center text-md-left">
+                    <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h5 class="text-uppercase mb-4 font-weight-bold text-warning">WeatherWave</h5>
+                        <p>Dive into Data, Ride the Wave</p>
+                    </div>
+                    <div class="col-md-2 col-lg-2 col-xl-3 mx-auto mt-3">
+                        <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Colaboradores</h5>
+                        <p>
+                            <a href="#" class="text-white" style="text-decoration: none;">Leonardo Mendonça de Oliveira</a>
+                        </p>
+                        <p>
+                            <a href="#" class="text-white" style="text-decoration: none;">Luis Guilherme Mourelhe Fernandes</a>
+                        </p>
+                        <p>
+                            <a href="#" class="text-white" style="text-decoration: none;"></a>
+                        </p>
+                        <p>
+                            <a href="#" class="text-white" style="text-decoration: none;"></a>
+                        </p>
+                    </div>
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                                <h5 class="text-uppercase mb-4 font-weight-bold text-warning"></h5>
+                                <p>
+                                    <i class="fas fa-home mr-3"></i> Rua José Péres, 558 - Centro, Leopoldina - MG, 36700-000
+                                </p>
+                                <p>
+                                    <i class="fas fa-home mr-3"></i> weatherwave0@gmail.com
+                                </p>
+                                <p>
+                                    <i class="fas fa-home mr-3"></i> +55 32 98820-5237
+                                </p>
+                                <p>
+                                    <i class="fas fa-home mr-3"></i> +55 32 98453-0865
+                                </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+</html>
