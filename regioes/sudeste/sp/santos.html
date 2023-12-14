@@ -14,39 +14,19 @@
 <body>
 	<section>
 			<header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-          <div class="container-fluid">
-            <a href="../../../projetoDweb.html"><img src="../../../assets/Wwlogo.png" alt="" class="navbar-brand" style="width: 3.8vw; height: auto;"/></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="../../../projetoDweb.html">Home</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Notícias
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="../../../maislidas.html">Mais lidas</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Ciência e desenvolvimento</a></li>
-                    <li><a class="dropdown-item" href="#">Espaço e observação noturna</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="../../../privacy-policy.html">Política de Privacidade</a>
-                </li>
-              </ul>
-              <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Digite aqui..." aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
-            </div>
-          </div>
-        </nav>
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+              const headerContainer = document.createElement('div');
+              headerContainer.classList.add('header-container');
+              document.body.prepend(headerContainer);
+    
+              fetch('./headerSp.html')
+                  .then(response => response.text())
+                  .then(data => {
+                      headerContainer.innerHTML = data;
+                  });
+          });
+      </script>
 			</header>
 
       <div class="container mt-4">
